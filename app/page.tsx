@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Badge } from '@/components/ui/badge'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Loader2, TrendingUp, TrendingDown, Lock, Unlock, RefreshCw, AlertCircle } from 'lucide-react'
+import { Loader2, TrendingUp, TrendingDown, Lock, Unlock, RefreshCw, AlertCircle, Trophy, Calendar, MapPin, Clock } from 'lucide-react'
 
 // TypeScript interfaces from test responses
 interface Driver {
@@ -90,6 +90,17 @@ const AGENT_IDS = {
   PREDICTION_ENGINE: '698596e3ab4bf65a66ad08b1',
   NEWS_CONTEXT: '6985970ce5d25ce3f598cbc9',
   DATA_SYNC: '6985972ea791e6e318b8df89',
+}
+
+// Next Race Information
+const NEXT_RACE = {
+  name: 'Australian Grand Prix',
+  location: 'Melbourne',
+  circuit: 'Albert Park Circuit',
+  date: 'March 24, 2026',
+  round: 3,
+  lapRecord: '1:20.260 (Charles Leclerc, 2024)',
+  raceDistance: '58 laps (306.124 km)',
 }
 
 // 2026 Active F1 Drivers (excluding retired)
@@ -274,10 +285,28 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Header */}
-      <header className="border-b border-gray-800 bg-black">
+      <header className="border-b border-red-600 bg-black">
         <div className="container mx-auto px-4 py-4">
-          <h1 className="text-2xl font-bold text-white">F1 Fantasy Team Analyzer Pro</h1>
-          <p className="text-sm text-gray-400">Multi-agent AI-powered fantasy team optimization</p>
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-2xl font-bold text-white flex items-center gap-2">
+                <Trophy className="h-7 w-7 text-red-600" />
+                F1 Fantasy Team Analyzer Pro
+              </h1>
+              <p className="text-sm text-gray-400">Multi-agent AI-powered fantasy team optimization</p>
+            </div>
+            <div className="hidden md:block text-right">
+              <div className="flex items-center gap-2 text-red-600 font-bold">
+                <Calendar className="h-4 w-4" />
+                <span className="text-sm">NEXT RACE</span>
+              </div>
+              <div className="text-white font-semibold">{NEXT_RACE.name}</div>
+              <div className="text-xs text-gray-400 flex items-center gap-1">
+                <MapPin className="h-3 w-3" />
+                {NEXT_RACE.location} - {NEXT_RACE.date}
+              </div>
+            </div>
+          </div>
         </div>
       </header>
 
@@ -285,22 +314,61 @@ export default function Home() {
       <div className="container mx-auto px-4 py-6">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="grid w-full grid-cols-4 bg-gray-900">
-            <TabsTrigger value="dashboard" className="text-white data-[state=active]:bg-green-600">
+            <TabsTrigger value="dashboard" className="text-white data-[state=active]:bg-red-600">
               Dashboard
             </TabsTrigger>
-            <TabsTrigger value="predictions" className="text-white data-[state=active]:bg-green-600">
+            <TabsTrigger value="predictions" className="text-white data-[state=active]:bg-red-600">
               Predictions
             </TabsTrigger>
-            <TabsTrigger value="stats" className="text-white data-[state=active]:bg-green-600">
+            <TabsTrigger value="stats" className="text-white data-[state=active]:bg-red-600">
               Stats
             </TabsTrigger>
-            <TabsTrigger value="data" className="text-white data-[state=active]:bg-green-600">
+            <TabsTrigger value="data" className="text-white data-[state=active]:bg-red-600">
               Data Sync
             </TabsTrigger>
           </TabsList>
 
           {/* Dashboard Tab */}
           <TabsContent value="dashboard" className="mt-6">
+            {/* Next Race Info Banner */}
+            <Card className="bg-gradient-to-r from-red-600 to-red-800 border-red-500 mb-6">
+              <CardContent className="pt-6">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-white">
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <Trophy className="h-4 w-4" />
+                      <span className="text-xs font-semibold uppercase">Race</span>
+                    </div>
+                    <div className="font-bold">{NEXT_RACE.name}</div>
+                    <div className="text-xs opacity-90">Round {NEXT_RACE.round}</div>
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <MapPin className="h-4 w-4" />
+                      <span className="text-xs font-semibold uppercase">Location</span>
+                    </div>
+                    <div className="font-bold">{NEXT_RACE.location}</div>
+                    <div className="text-xs opacity-90">{NEXT_RACE.circuit}</div>
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <Calendar className="h-4 w-4" />
+                      <span className="text-xs font-semibold uppercase">Date</span>
+                    </div>
+                    <div className="font-bold">{NEXT_RACE.date}</div>
+                    <div className="text-xs opacity-90">{NEXT_RACE.raceDistance}</div>
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <Clock className="h-4 w-4" />
+                      <span className="text-xs font-semibold uppercase">Lap Record</span>
+                    </div>
+                    <div className="font-bold text-sm">{NEXT_RACE.lapRecord}</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Left + Center: Team Builder */}
               <div className="lg:col-span-2 space-y-6">
@@ -313,12 +381,12 @@ export default function Home() {
                     <div className="space-y-3">
                       <div className="flex justify-between text-sm">
                         <span className="text-gray-400">Used: ${usedBudget.toFixed(1)}M</span>
-                        <span className="text-green-500 font-bold">Remaining: ${remainingBudget.toFixed(1)}M</span>
+                        <span className="text-red-500 font-bold">Remaining: ${remainingBudget.toFixed(1)}M</span>
                         <span className="text-gray-400">Total: ${budget.toFixed(1)}M</span>
                       </div>
                       <div className="h-3 bg-gray-800 rounded-full overflow-hidden">
                         <div
-                          className="h-full bg-green-600 transition-all duration-300"
+                          className="h-full bg-red-600 transition-all duration-300"
                           style={{ width: `${(usedBudget / budget) * 100}%` }}
                         />
                       </div>
@@ -351,7 +419,7 @@ export default function Home() {
                           variant={riskTolerance === risk ? 'default' : 'outline'}
                           className={`flex-1 text-xs py-2 ${
                             riskTolerance === risk
-                              ? 'bg-green-600 hover:bg-green-700 text-white'
+                              ? 'bg-red-600 hover:bg-red-700 text-white'
                               : 'bg-gray-800 hover:bg-gray-700 text-gray-300 border-gray-700'
                           }`}
                         >
@@ -377,7 +445,7 @@ export default function Home() {
                             onClick={() => toggleDriverLock(driver.name)}
                             className={`flex items-center justify-between p-3 rounded-lg transition-all min-h-[44px] ${
                               isLocked
-                                ? 'bg-green-600 hover:bg-green-700'
+                                ? 'bg-red-600 hover:bg-red-700'
                                 : 'bg-gray-800 hover:bg-gray-700'
                             }`}
                           >
@@ -412,7 +480,7 @@ export default function Home() {
                             onClick={() => toggleConstructorLock(constructor.name)}
                             className={`flex items-center justify-between p-3 rounded-lg transition-all min-h-[44px] ${
                               isLocked
-                                ? 'bg-green-600 hover:bg-green-700'
+                                ? 'bg-red-600 hover:bg-red-700'
                                 : 'bg-gray-800 hover:bg-gray-700'
                             }`}
                           >
@@ -436,15 +504,18 @@ export default function Home() {
                 <Button
                   onClick={generateRecommendations}
                   disabled={loading}
-                  className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-6 text-lg"
+                  className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-6 text-lg shadow-lg shadow-red-600/50"
                 >
                   {loading ? (
                     <>
                       <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                      Generating Recommendations...
+                      Generating AI-Powered Recommendations...
                     </>
                   ) : (
-                    'Generate Recommendations'
+                    <>
+                      <Trophy className="mr-2 h-5 w-5" />
+                      Generate AI Recommendations
+                    </>
                   )}
                 </Button>
 
@@ -461,68 +532,89 @@ export default function Home() {
                 )}
               </div>
 
-              {/* Right: Recommendations Panel */}
+              {/* Right: Recommendations Panel - ENHANCED */}
               <div className="lg:col-span-1">
-                <Card className="bg-black border-gray-800 sticky top-6">
-                  <CardHeader>
-                    <CardTitle className="text-white text-xl">Recommendations</CardTitle>
+                <Card className="bg-gradient-to-b from-black via-gray-900 to-black border-red-600 border-2 sticky top-6 shadow-2xl shadow-red-600/20">
+                  <CardHeader className="bg-gradient-to-r from-red-600 to-red-800 border-b border-red-500">
+                    <CardTitle className="text-white text-2xl flex items-center gap-2">
+                      <Trophy className="h-6 w-6 text-yellow-400" />
+                      AI Recommendations
+                    </CardTitle>
+                    <p className="text-xs text-red-100 mt-1">Powered by multi-agent analysis</p>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="pt-6">
                     {recommendations ? (
                       <div className="space-y-6">
+                        {/* Team Summary - Moved to top for emphasis */}
+                        <div className="bg-gradient-to-r from-red-900/50 to-black border border-red-600 p-4 rounded-lg">
+                          <h3 className="text-red-500 font-bold text-sm uppercase mb-3 flex items-center gap-2">
+                            <TrendingUp className="h-4 w-4" />
+                            Team Performance Forecast
+                          </h3>
+                          <div className="space-y-3">
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-300 text-sm">Predicted Points:</span>
+                              <span className="text-white font-bold text-2xl">{recommendations.recommended_team.total_predicted_points}</span>
+                            </div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-300 text-sm">Total Cost:</span>
+                              <span className="text-red-400 font-bold text-lg">${recommendations.recommended_team.total_cost}M</span>
+                            </div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-300 text-sm">Budget Remaining:</span>
+                              <span className="text-green-400 font-bold text-lg">${recommendations.recommended_team.budget_remaining}M</span>
+                            </div>
+                          </div>
+                        </div>
+
                         {/* Recommended Team */}
                         <div>
-                          <h3 className="text-white font-bold text-lg mb-3">Recommended Team</h3>
+                          <h3 className="text-white font-bold text-lg mb-3 flex items-center gap-2">
+                            <span className="text-red-500">Top Picks</span>
+                            <Badge className="bg-red-600 text-white text-xs">
+                              {recommendations.recommended_team.drivers.length} drivers
+                            </Badge>
+                          </h3>
                           <div className="space-y-3">
                             {recommendations.recommended_team.drivers.map((driver, idx) => (
-                              <div key={idx} className="bg-gray-900 p-3 rounded-lg">
+                              <div key={idx} className="bg-black border-2 border-red-900 hover:border-red-600 p-4 rounded-lg transition-all">
                                 <div className="flex items-start justify-between mb-2">
                                   <div className="flex-1">
-                                    <div className="font-bold text-white text-lg">{driver.name}</div>
-                                    <div className="text-xs text-gray-400">{driver.team}</div>
+                                    <div className="font-bold text-white text-xl">{driver.name}</div>
+                                    <div className="text-sm text-gray-400 font-semibold">{driver.team}</div>
                                   </div>
-                                  <Badge className="bg-green-600 text-white">
-                                    {driver.predicted_points}pts
-                                  </Badge>
+                                  <div className="text-right">
+                                    <Badge className="bg-red-600 text-white mb-1">
+                                      {driver.predicted_points}pts
+                                    </Badge>
+                                    <div className="text-xs text-gray-400">${driver.current_price}M</div>
+                                  </div>
                                 </div>
-                                <div className="text-xs text-gray-300 mb-2">{driver.reason}</div>
-                                <div className="flex justify-between text-xs">
-                                  <span className="text-gray-400">Price: ${driver.current_price}M</span>
-                                  <span className="text-green-500">Value: {driver.value_score?.toFixed(2)}</span>
-                                  <span className="text-blue-400">{driver.confidence}% confident</span>
+                                <div className="text-sm text-gray-300 mb-3 leading-relaxed">{driver.reason}</div>
+                                <div className="flex justify-between text-xs pt-2 border-t border-gray-800">
+                                  <span className="text-red-400 font-semibold">Value: {driver.value_score?.toFixed(2)}</span>
+                                  <span className="text-gray-400">{driver.confidence}% confidence</span>
                                 </div>
                               </div>
                             ))}
                           </div>
                         </div>
 
-                        {/* Team Summary */}
-                        <div className="bg-gray-900 p-4 rounded-lg">
-                          <div className="space-y-2 text-sm">
-                            <div className="flex justify-between">
-                              <span className="text-gray-400">Total Cost:</span>
-                              <span className="text-white font-bold">${recommendations.recommended_team.total_cost}M</span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span className="text-gray-400">Predicted Points:</span>
-                              <span className="text-green-500 font-bold">{recommendations.recommended_team.total_predicted_points}</span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span className="text-gray-400">Budget Remaining:</span>
-                              <span className="text-white font-bold">${recommendations.recommended_team.budget_remaining}M</span>
-                            </div>
-                          </div>
-                        </div>
-
                         {/* Alternative Picks */}
                         {recommendations.alternative_picks && recommendations.alternative_picks.length > 0 && (
                           <div>
-                            <h3 className="text-white font-bold text-base mb-3">Alternative Picks</h3>
+                            <h3 className="text-white font-bold text-base mb-3 flex items-center gap-2">
+                              <TrendingDown className="h-4 w-4 text-yellow-500" />
+                              Alternative Picks
+                            </h3>
                             <div className="space-y-2">
                               {recommendations.alternative_picks.map((driver, idx) => (
-                                <div key={idx} className="bg-gray-900 p-3 rounded-lg">
-                                  <div className="font-bold text-white text-base">{driver.name}</div>
-                                  <div className="text-xs text-gray-400 mb-1">{driver.team} - ${driver.current_price}M</div>
+                                <div key={idx} className="bg-gray-900 border border-gray-700 hover:border-yellow-600 p-3 rounded-lg transition-all">
+                                  <div className="flex justify-between items-start mb-1">
+                                    <div className="font-bold text-white text-base">{driver.name}</div>
+                                    <Badge className="bg-yellow-600 text-black text-xs">ALT</Badge>
+                                  </div>
+                                  <div className="text-xs text-gray-400 mb-2">{driver.team} - ${driver.current_price}M</div>
                                   <div className="text-xs text-gray-300">{driver.reason}</div>
                                 </div>
                               ))}
@@ -533,26 +625,36 @@ export default function Home() {
                         {/* Insights */}
                         {recommendations.insights && (
                           <div className="space-y-3">
-                            <h3 className="text-white font-bold text-base">Insights</h3>
-                            <div className="bg-gray-900 p-3 rounded-lg">
-                              <h4 className="text-sm font-semibold text-green-500 mb-1">Stats Summary</h4>
-                              <p className="text-xs text-gray-300">{recommendations.insights.stats_summary}</p>
+                            <h3 className="text-white font-bold text-base border-b border-gray-800 pb-2">AI Agent Insights</h3>
+                            <div className="bg-gradient-to-br from-blue-900/30 to-black border border-blue-800/50 p-3 rounded-lg">
+                              <h4 className="text-sm font-semibold text-blue-400 mb-2 flex items-center gap-2">
+                                <TrendingUp className="h-3 w-3" />
+                                Stats Analysis
+                              </h4>
+                              <p className="text-xs text-gray-300 leading-relaxed">{recommendations.insights.stats_summary}</p>
                             </div>
-                            <div className="bg-gray-900 p-3 rounded-lg">
-                              <h4 className="text-sm font-semibold text-blue-500 mb-1">Predictions</h4>
-                              <p className="text-xs text-gray-300">{recommendations.insights.prediction_highlights}</p>
+                            <div className="bg-gradient-to-br from-purple-900/30 to-black border border-purple-800/50 p-3 rounded-lg">
+                              <h4 className="text-sm font-semibold text-purple-400 mb-2 flex items-center gap-2">
+                                <TrendingUp className="h-3 w-3" />
+                                Predictions
+                              </h4>
+                              <p className="text-xs text-gray-300 leading-relaxed">{recommendations.insights.prediction_highlights}</p>
                             </div>
-                            <div className="bg-gray-900 p-3 rounded-lg">
-                              <h4 className="text-sm font-semibold text-purple-500 mb-1">News Context</h4>
-                              <p className="text-xs text-gray-300">{recommendations.insights.news_context}</p>
+                            <div className="bg-gradient-to-br from-orange-900/30 to-black border border-orange-800/50 p-3 rounded-lg">
+                              <h4 className="text-sm font-semibold text-orange-400 mb-2 flex items-center gap-2">
+                                <AlertCircle className="h-3 w-3" />
+                                News Context
+                              </h4>
+                              <p className="text-xs text-gray-300 leading-relaxed">{recommendations.insights.news_context}</p>
                             </div>
                           </div>
                         )}
                       </div>
                     ) : (
-                      <div className="text-center text-gray-400 py-12">
-                        <p className="mb-2">No recommendations yet</p>
-                        <p className="text-sm">Configure your team and click Generate</p>
+                      <div className="text-center py-16">
+                        <Trophy className="h-16 w-16 text-gray-700 mx-auto mb-4" />
+                        <p className="text-gray-400 font-semibold mb-2">No recommendations yet</p>
+                        <p className="text-sm text-gray-500">Configure your team preferences and click Generate</p>
                       </div>
                     )}
                   </CardContent>
@@ -568,7 +670,7 @@ export default function Home() {
                 <CardTitle className="text-white">Race Predictions & Analysis</CardTitle>
               </CardHeader>
               <CardContent>
-                <Button onClick={loadStats} disabled={loading} className="mb-4 bg-green-600 hover:bg-green-700">
+                <Button onClick={loadStats} disabled={loading} className="mb-4 bg-red-600 hover:bg-red-700">
                   {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
                   Load Predictions
                 </Button>
@@ -603,7 +705,7 @@ export default function Home() {
                           </div>
                           <div className="flex justify-between">
                             <span className="text-gray-400">Consistency:</span>
-                            <span className="text-green-500 font-bold">{stat.consistency_score}/10</span>
+                            <span className="text-red-500 font-bold">{stat.consistency_score}/10</span>
                           </div>
                         </div>
                         <div className="mt-3 pt-3 border-t border-gray-800">
@@ -624,7 +726,7 @@ export default function Home() {
                 <CardTitle className="text-white">News & Sentiment Analysis</CardTitle>
               </CardHeader>
               <CardContent>
-                <Button onClick={loadNews} disabled={loading} className="mb-4 bg-green-600 hover:bg-green-700">
+                <Button onClick={loadNews} disabled={loading} className="mb-4 bg-red-600 hover:bg-red-700">
                   {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
                   Load News
                 </Button>
@@ -638,9 +740,9 @@ export default function Home() {
                           <Badge
                             className={
                               news.impact === 'positive'
-                                ? 'bg-green-600'
-                                : news.impact === 'negative'
                                 ? 'bg-red-600'
+                                : news.impact === 'negative'
+                                ? 'bg-gray-600'
                                 : 'bg-gray-600'
                             }
                           >
@@ -671,7 +773,7 @@ export default function Home() {
                 <Button
                   onClick={syncData}
                   disabled={loading}
-                  className="mb-6 bg-green-600 hover:bg-green-700"
+                  className="mb-6 bg-red-600 hover:bg-red-700"
                 >
                   {loading ? (
                     <>
@@ -689,20 +791,20 @@ export default function Home() {
                 {syncSummary && (
                   <div className="space-y-4">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                      <div className="bg-black border border-gray-800 p-4 rounded-lg">
-                        <div className="text-2xl font-bold text-white mb-1">{syncSummary.changes_detected}</div>
+                      <div className="bg-black border border-red-800 p-4 rounded-lg">
+                        <div className="text-2xl font-bold text-red-500 mb-1">{syncSummary.changes_detected}</div>
                         <div className="text-xs text-gray-400">Changes Detected</div>
                       </div>
                       <div className="bg-black border border-gray-800 p-4 rounded-lg">
-                        <div className="text-2xl font-bold text-green-500 mb-1">{syncSummary.drivers_updated}</div>
+                        <div className="text-2xl font-bold text-white mb-1">{syncSummary.drivers_updated}</div>
                         <div className="text-xs text-gray-400">Drivers Updated</div>
                       </div>
                       <div className="bg-black border border-gray-800 p-4 rounded-lg">
-                        <div className="text-2xl font-bold text-blue-500 mb-1">{syncSummary.constructors_updated}</div>
+                        <div className="text-2xl font-bold text-white mb-1">{syncSummary.constructors_updated}</div>
                         <div className="text-xs text-gray-400">Constructors Updated</div>
                       </div>
                       <div className="bg-black border border-gray-800 p-4 rounded-lg">
-                        <div className="text-2xl font-bold text-red-500 mb-1">{syncSummary.retired_drivers_removed}</div>
+                        <div className="text-2xl font-bold text-gray-400 mb-1">{syncSummary.retired_drivers_removed}</div>
                         <div className="text-xs text-gray-400">Retired Drivers Removed</div>
                       </div>
                     </div>
