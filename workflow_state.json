@@ -1,0 +1,49 @@
+{
+  "workflow_name": "F1 Fantasy Team Analyzer Pro",
+  "created_at": "2026-02-06T00:00:00Z",
+  "agents": {
+    "fantasy_orchestrator": {
+      "agent_id": "6985975907ec48e3dc90a264",
+      "name": "Fantasy Orchestrator",
+      "type": "manager",
+      "status": "active",
+      "manages": [
+        "698596c476d4fd436bf4b710",
+        "698596e3ab4bf65a66ad08b1",
+        "6985970ce5d25ce3f598cbc9"
+      ]
+    },
+    "stats_analysis_agent": {
+      "agent_id": "698596c476d4fd436bf4b710",
+      "name": "Stats Analysis Agent",
+      "type": "sub_agent",
+      "status": "active",
+      "managed_by": "6985975907ec48e3dc90a264"
+    },
+    "prediction_engine_agent": {
+      "agent_id": "698596e3ab4bf65a66ad08b1",
+      "name": "Prediction Engine Agent",
+      "type": "sub_agent",
+      "status": "active",
+      "managed_by": "6985975907ec48e3dc90a264"
+    },
+    "news_context_agent": {
+      "agent_id": "6985970ce5d25ce3f598cbc9",
+      "name": "News & Context Agent",
+      "type": "sub_agent",
+      "status": "active",
+      "managed_by": "6985975907ec48e3dc90a264"
+    },
+    "data_sync_agent": {
+      "agent_id": "6985972ea791e6e318b8df89",
+      "name": "Data Sync Agent",
+      "type": "independent",
+      "status": "active",
+      "trigger": "scheduled_and_manual"
+    }
+  },
+  "total_agents": 5,
+  "manager_agents": 1,
+  "sub_agents": 3,
+  "independent_agents": 1
+}

@@ -1,0 +1,267 @@
+{
+  "agent_name": "Data Sync Agent",
+  "agent_id": "6985972ea791e6e318b8df89",
+  "agent_purpose": "Monitor and sync F1 roster changes, remove retired drivers, update 2026 season data, and refresh fantasy values",
+  "description": "F1 data synchronization and roster management",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "sync_summary": {
+        "last_sync_time": "string",
+        "changes_detected": "number",
+        "drivers_updated": "number",
+        "constructors_updated": "number",
+        "retired_drivers_removed": "number"
+      },
+      "roster_changes": [
+        {
+          "change_type": "string",
+          "driver_name": "string",
+          "previous_team": "string",
+          "current_team": "string",
+          "effective_date": "string",
+          "fantasy_impact": "string"
+        }
+      ],
+      "retired_drivers": [
+        {
+          "driver_name": "string",
+          "last_team": "string",
+          "retirement_date": "string",
+          "reason": "string"
+        }
+      ],
+      "fantasy_value_updates": [
+        {
+          "driver_or_constructor": "string",
+          "previous_value": "number",
+          "current_value": "number",
+          "change_percentage": "number",
+          "reason": "string"
+        }
+      ],
+      "season_2026_status": {
+        "confirmed_drivers": "number",
+        "confirmed_constructors": "number",
+        "pending_announcements": [
+          "any"
+        ],
+        "data_completeness": "number"
+      },
+      "data_quality": {
+        "completeness_score": "number",
+        "last_verification": "string",
+        "issues_found": [
+          "string"
+        ]
+      }
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string",
+      "next_scheduled_sync": "string"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "sync_summary": {
+        "last_sync_time": "2023-10-19T00:00:00Z",
+        "changes_detected": 2,
+        "drivers_updated": 10,
+        "constructors_updated": 2,
+        "retired_drivers_removed": 2
+      },
+      "roster_changes": [
+        {
+          "change_type": "driver_retired",
+          "driver_name": "Nyck De Vries",
+          "previous_team": "AlphaTauri",
+          "current_team": "Retired",
+          "effective_date": "2023-10-01",
+          "fantasy_impact": "Removed from active roster"
+        },
+        {
+          "change_type": "driver_retired",
+          "driver_name": "Daniel Ricciardo",
+          "previous_team": "AlphaTauri",
+          "current_team": "Retired",
+          "effective_date": "2023-10-01",
+          "fantasy_impact": "Removed from active roster"
+        }
+      ],
+      "retired_drivers": [
+        {
+          "driver_name": "Nyck De Vries",
+          "last_team": "AlphaTauri",
+          "retirement_date": "2023-10-01",
+          "reason": "Official retirement announcement"
+        },
+        {
+          "driver_name": "Daniel Ricciardo",
+          "last_team": "AlphaTauri",
+          "retirement_date": "2023-10-01",
+          "reason": "Official retirement announcement"
+        }
+      ],
+      "fantasy_value_updates": [
+        {
+          "driver_or_constructor": "Max Verstappen",
+          "previous_value": 10.0,
+          "current_value": 11.5,
+          "change_percentage": 15.0,
+          "reason": "Recent championship performance"
+        },
+        {
+          "driver_or_constructor": "Lewis Hamilton",
+          "previous_value": 9.3,
+          "current_value": 9.0,
+          "change_percentage": -3.2,
+          "reason": "Declining performance relative to competitors"
+        },
+        {
+          "driver_or_constructor": "Charles Leclerc",
+          "previous_value": 8.0,
+          "current_value": 8.5,
+          "change_percentage": 6.3,
+          "reason": "Improved race outcomes"
+        },
+        {
+          "driver_or_constructor": "Sergio Perez",
+          "previous_value": 7.5,
+          "current_value": 7.8,
+          "change_percentage": 4.0,
+          "reason": "Steady performance and team support"
+        },
+        {
+          "driver_or_constructor": "Lando Norris",
+          "previous_value": 6.5,
+          "current_value": 6.9,
+          "change_percentage": 6.2,
+          "reason": "Consistent points finishes"
+        }
+      ],
+      "season_2026_status": {
+        "confirmed_drivers": 18,
+        "confirmed_constructors": 10,
+        "pending_announcements": [],
+        "data_completeness": 95
+      },
+      "data_quality": {
+        "completeness_score": 90,
+        "last_verification": "2023-10-18T00:00:00Z",
+        "issues_found": [
+          "None"
+        ]
+      }
+    },
+    "metadata": {
+      "agent_name": "Data Sync Agent",
+      "timestamp": "2023-10-19T00:00:00Z",
+      "next_scheduled_sync": "2023-10-20T00:00:00Z"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-02-06T07:27:58.536641",
+  "test_message_used": "Hello, provide a sample response",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "sync_summary": {
+        "last_sync_time": "2023-10-19T00:00:00Z",
+        "changes_detected": 2,
+        "drivers_updated": 10,
+        "constructors_updated": 2,
+        "retired_drivers_removed": 2
+      },
+      "roster_changes": [
+        {
+          "change_type": "driver_retired",
+          "driver_name": "Nyck De Vries",
+          "previous_team": "AlphaTauri",
+          "current_team": "Retired",
+          "effective_date": "2023-10-01",
+          "fantasy_impact": "Removed from active roster"
+        },
+        {
+          "change_type": "driver_retired",
+          "driver_name": "Daniel Ricciardo",
+          "previous_team": "AlphaTauri",
+          "current_team": "Retired",
+          "effective_date": "2023-10-01",
+          "fantasy_impact": "Removed from active roster"
+        }
+      ],
+      "retired_drivers": [
+        {
+          "driver_name": "Nyck De Vries",
+          "last_team": "AlphaTauri",
+          "retirement_date": "2023-10-01",
+          "reason": "Official retirement announcement"
+        },
+        {
+          "driver_name": "Daniel Ricciardo",
+          "last_team": "AlphaTauri",
+          "retirement_date": "2023-10-01",
+          "reason": "Official retirement announcement"
+        }
+      ],
+      "fantasy_value_updates": [
+        {
+          "driver_or_constructor": "Max Verstappen",
+          "previous_value": 10.0,
+          "current_value": 11.5,
+          "change_percentage": 15.0,
+          "reason": "Recent championship performance"
+        },
+        {
+          "driver_or_constructor": "Lewis Hamilton",
+          "previous_value": 9.3,
+          "current_value": 9.0,
+          "change_percentage": -3.2,
+          "reason": "Declining performance relative to competitors"
+        },
+        {
+          "driver_or_constructor": "Charles Leclerc",
+          "previous_value": 8.0,
+          "current_value": 8.5,
+          "change_percentage": 6.3,
+          "reason": "Improved race outcomes"
+        },
+        {
+          "driver_or_constructor": "Sergio Perez",
+          "previous_value": 7.5,
+          "current_value": 7.8,
+          "change_percentage": 4.0,
+          "reason": "Steady performance and team support"
+        },
+        {
+          "driver_or_constructor": "Lando Norris",
+          "previous_value": 6.5,
+          "current_value": 6.9,
+          "change_percentage": 6.2,
+          "reason": "Consistent points finishes"
+        }
+      ],
+      "season_2026_status": {
+        "confirmed_drivers": 18,
+        "confirmed_constructors": 10,
+        "pending_announcements": [],
+        "data_completeness": 95
+      },
+      "data_quality": {
+        "completeness_score": 90,
+        "last_verification": "2023-10-18T00:00:00Z",
+        "issues_found": [
+          "None"
+        ]
+      }
+    },
+    "metadata": {
+      "agent_name": "Data Sync Agent",
+      "timestamp": "2023-10-19T00:00:00Z",
+      "next_scheduled_sync": "2023-10-20T00:00:00Z"
+    }
+  },
+  "test_passed": true
+}

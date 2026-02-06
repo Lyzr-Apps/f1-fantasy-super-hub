@@ -1,0 +1,130 @@
+{
+  "agent_name": "Fantasy Orchestrator",
+  "agent_id": "6985975907ec48e3dc90a264",
+  "test_message": "Generate F1 fantasy team recommendations for the upcoming race. Budget: $100M. Locked drivers: Max Verstappen, Lewis Hamilton. Risk tolerance: Aggressive. Exclude retired drivers.",
+  "expected_purpose": "Generate team recommendations with locked drivers",
+  "timestamp": "2026-02-06T07:32:45.879858",
+  "is_valid_json": true,
+  "validation_errors": [],
+  "actual_response": {
+    "status": "success",
+    "result": {
+      "recommended_team": {
+        "drivers": [
+          {
+            "name": "Max Verstappen",
+            "team": "Red Bull",
+            "current_price": 28.2,
+            "predicted_points": 48,
+            "value_score": 1.7,
+            "reason": "Locked driver. Top-performer with strong win record, dominant in qualifying and races.",
+            "confidence": 95
+          },
+          {
+            "name": "Lewis Hamilton",
+            "team": "Mercedes",
+            "current_price": 25.6,
+            "predicted_points": 29,
+            "value_score": 1.13,
+            "reason": "Locked driver. Consistent points scorer; Mercedes showing improvements.",
+            "confidence": 85
+          },
+          {
+            "name": "Oscar Piastri",
+            "team": "McLaren",
+            "current_price": 17.9,
+            "predicted_points": 22,
+            "value_score": 1.23,
+            "reason": "Aggressive pick; McLaren's recent upgrades pushing Piastri into podium contention.",
+            "confidence": 80
+          },
+          {
+            "name": "Yuki Tsunoda",
+            "team": "RB",
+            "current_price": 7.8,
+            "predicted_points": 12,
+            "value_score": 1.54,
+            "reason": "High-upside lower-cost pick; excels in chaotic, aggressive race scenarios.",
+            "confidence": 75
+          },
+          {
+            "name": "Nico H\u00fclkenberg",
+            "team": "Haas",
+            "current_price": 6.9,
+            "predicted_points": 10,
+            "value_score": 1.45,
+            "reason": "Calculated risk; qualifies well and has shown point-scoring potential in unpredictable races.",
+            "confidence": 70
+          }
+        ],
+        "total_cost": 86.4,
+        "total_predicted_points": 121,
+        "budget_remaining": 13.6
+      },
+      "locked_drivers_included": [
+        "Max Verstappen",
+        "Lewis Hamilton"
+      ],
+      "alternative_picks": [
+        {
+          "name": "Charles Leclerc",
+          "team": "Ferrari",
+          "current_price": 23.1,
+          "predicted_points": 26,
+          "reason": "Fast in qualifying, capable of podium in tight races."
+        },
+        {
+          "name": "Lando Norris",
+          "team": "McLaren",
+          "current_price": 21.3,
+          "predicted_points": 25,
+          "reason": "Consistent podium threat with excellent late-race pace."
+        },
+        {
+          "name": "Esteban Ocon",
+          "team": "Alpine",
+          "current_price": 7.1,
+          "predicted_points": 9,
+          "reason": "Can capitalize in aggressive strategies and wet/dynamic conditions."
+        }
+      ],
+      "insights": {
+        "stats_summary": "Verstappen has averaged 47.8 points over last 5 races; Hamilton trending upward. Piastri outscored Norris in 2 of last 3 events. Tsunoda strong in top 10 despite car limitations.",
+        "prediction_highlights": "Aggressive risk profile: Piastri and Tsunoda offer biggest high-reward potential based on qualifying and race chaos. H\u00fclkenberg likely to capitalize on unpredictability.",
+        "news_context": "McLaren upgrades have closed pace gap; Mercedes introducing minor improvements for this round. RB team positive about Tsunoda's mindset and recent performance spike."
+      },
+      "excluded_drivers": [
+        {
+          "name": "Daniel Ricciardo",
+          "reason": "retired"
+        },
+        {
+          "name": "Kevin Magnussen",
+          "reason": "retired"
+        },
+        {
+          "name": "Guanyu Zhou",
+          "reason": "retired"
+        },
+        {
+          "name": "Valtteri Bottas",
+          "reason": "retired"
+        },
+        {
+          "name": "Logan Sargeant",
+          "reason": "retired"
+        }
+      ]
+    },
+    "metadata": {
+      "agent_name": "Fantasy Orchestrator",
+      "timestamp": "2024-06-18T20:10:00Z",
+      "sub_agents_consulted": [
+        "Stats Analysis Agent",
+        "Prediction Engine Agent",
+        "News & Context Agent"
+      ]
+    }
+  },
+  "raw_response": "{\n  \"status\": \"success\",\n  \"result\": {\n    \"recommended_team\": {\n      \"drivers\": [\n        {\n          \"name\": \"Max Verstappen\",\n          \"team\": \"Red Bull\",\n          \"current_price\": 28.2,\n          \"predicted_points\": 48,\n          \"value_score\": 1.70,\n          \"reason\": \"Locked driver. Top-performer with strong win record, dominant in qualifying and races.\",\n          \"confidence\": 95\n        },\n        {\n          \"name\": \"Lewis Hamilton\",\n          \"team\": \"Mercedes\",\n          \"current_price\": 25.6,\n          \"predicted_points\": 29,\n          \"value_score\": 1.13,\n          \"reason\": \"Locked driver. Consistent points scorer; Mercedes showing improvements.\",\n          \"confidence\": 85\n        },\n        {\n          \"name\": \"Oscar Piastri\",\n          \"team\": \"McLaren\",\n          \"current_price\": 17.9,\n          \"predicted_points\": 22,\n          \"value_score\": 1.23,\n          \"reason\": \"Aggressive pick; McLaren's recent upgrades pushing Piastri into podium contention.\",\n          \"confidence\": 80\n        },\n        {\n          \"name\": \"Yuki Tsunoda\",\n          \"team\": \"RB\",\n          \"current_price\": 7.8,\n          \"predicted_points\": 12,\n          \"value_score\": 1.54,\n          \"reason\": \"High-upside lower-cost pick; excels in chaotic, aggressive race scenarios.\",\n          \"confidence\": 75\n        },\n        {\n          \"name\": \"Nico H\u00fclkenberg\",\n          \"team\": \"Haas\",\n          \"current_price\": 6.9,\n          \"predicted_points\": 10,\n          \"value_score\": 1.45,\n          \"reason\": \"Calculated risk; qualifies well and has shown point-scoring potential in unpredictable races.\",\n          \"confidence\": 70\n        }\n      ],\n      \"total_cost\": 86.4,\n      \"total_predicted_points\": 121,\n      \"budget_remaining\": 13.6\n    },\n    \"locked_drivers_included\": [\n      \"Max Verstappen\",\n      \"Lewis Hamilton\"\n    ],\n    \"alternative_picks\": [\n      {\n        \"name\": \"Charles Leclerc\",\n        \"team\": \"Ferrari\",\n        \"current_price\": 23.1,\n        \"predicted_points\": 26,\n        \"reason\": \"Fast in qualifying, capable of podium in tight races.\"\n      },\n      {\n        \"name\": \"Lando Norris\",\n        \"team\": \"McLaren\",\n        \"current_price\": 21.3,\n        \"predicted_points\": 25,\n        \"reason\": \"Consistent podium threat with excellent late-race pace.\"\n      },\n      {\n        \"name\": \"Esteban Ocon\",\n        \"team\": \"Alpine\",\n        \"current_price\": 7.1,\n        \"predicted_points\": 9,\n        \"reason\": \"Can capitalize in aggressive strategies and wet/dynamic conditions.\"\n      }\n    ],\n    \"insights\": {\n      \"stats_summary\": \"Verstappen has averaged 47.8 points over last 5 races; Hamilton trending upward. Piastri outscored Norris in 2 of last 3 events. Tsunoda strong in top 10 despite car limitations.\",\n      \"prediction_highlights\": \"Aggressive risk profile: Piastri and Tsunoda offer biggest high-reward potential based on qualifying and race chaos. H\u00fclkenberg likely to capitalize on unpredictability.\",\n      \"news_context\": \"McLaren upgrades have closed pace gap; Mercedes introducing minor improvements for this round. RB team positive about Tsunoda's mindset and recent performance spike.\"\n    },\n    \"excluded_drivers\": [\n      {\n        \"name\": \"Daniel Ricciardo\",\n        \"reason\": \"retired\"\n      },\n      {\n        \"name\": \"Kevin Magnussen\",\n        \"reason\": \"retired\"\n      },\n      {\n        \"name\": \"Guanyu Zhou\",\n        \"reason\": \"retired\"\n      },\n      {\n        \"name\": \"Valtteri Bottas\",\n        \"reason\": \"retired\"\n      },\n      {\n        \"name\": \"Logan Sargeant\",\n        \"reason\": \"retired\"\n      }\n    ]\n  },\n  \"metadata\": {\n    \"agent_name\": \"Fantasy Orchestrator\",\n    \"timestamp\": \"2024-06-18T20:10:00Z\",\n    \"sub_agents_consulted\": [\n      \"Stats Analysis Agent\",\n      \"Prediction Engine Agent\",\n      \"News & Context Agent\"\n    ]\n  }\n}"
+}

@@ -1,0 +1,208 @@
+{
+  "agent_name": "News & Context Agent",
+  "agent_id": "6985970ce5d25ce3f598cbc9",
+  "agent_purpose": "news_context_analysis",
+  "description": "Analyzes F1 news, social media sentiment, contract rumors, and rookie performance to identify fantasy value opportunities",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "news_insights": [
+        {
+          "driver_name": "string",
+          "headline": "string",
+          "impact": "string",
+          "confidence": "number",
+          "source": "string",
+          "date": "string"
+        }
+      ],
+      "sentiment_analysis": [
+        {
+          "driver_name": "string",
+          "sentiment_score": "number",
+          "trend": "string",
+          "key_factors": [
+            "string"
+          ]
+        }
+      ],
+      "emerging_opportunities": [
+        {
+          "driver_name": "string",
+          "opportunity_type": "string",
+          "reason": "string",
+          "confidence": "number"
+        }
+      ],
+      "contract_rumors": [
+        {
+          "driver_name": "string",
+          "rumor_details": "string",
+          "reliability": "string",
+          "potential_impact": "string"
+        }
+      ]
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string",
+      "sources_checked": "number"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "news_insights": [
+        {
+          "driver_name": "Lando Norris",
+          "headline": "Norris signs new contract with McLaren through 2026",
+          "impact": "positive",
+          "confidence": 85,
+          "source": "Motorsport.com",
+          "date": "2023-10-07"
+        },
+        {
+          "driver_name": "Charles Leclerc",
+          "headline": "Leclerc linked with potential move to Mercedes",
+          "impact": "neutral",
+          "confidence": 70,
+          "source": "Sky Sports",
+          "date": "2023-10-06"
+        }
+      ],
+      "sentiment_analysis": [
+        {
+          "driver_name": "Max Verstappen",
+          "sentiment_score": 90,
+          "trend": "rising",
+          "key_factors": [
+            "Consistent race wins",
+            "Strong team performance"
+          ]
+        },
+        {
+          "driver_name": "Lewis Hamilton",
+          "sentiment_score": 60,
+          "trend": "falling",
+          "key_factors": [
+            "Mixed results",
+            "Rumors of retirement"
+          ]
+        }
+      ],
+      "emerging_opportunities": [
+        {
+          "driver_name": "Theo Pourchaire",
+          "opportunity_type": "rookie",
+          "reason": "Strong performance in F2 and set to debut in 2026",
+          "confidence": 80
+        },
+        {
+          "driver_name": "Jack Doohan",
+          "opportunity_type": "rookie",
+          "reason": "Solid F2 results, potential 2026 seat opportunity",
+          "confidence": 75
+        }
+      ],
+      "contract_rumors": [
+        {
+          "driver_name": "Carlos Sainz",
+          "rumor_details": "Sainz could be leaving Ferrari for a role at Aston Martin",
+          "reliability": "medium",
+          "potential_impact": "Could alter team dynamics at Ferrari"
+        },
+        {
+          "driver_name": "Yuki Tsunoda",
+          "rumor_details": "Tsunoda rumored to be on the move from AlphaTauri to Alpine",
+          "reliability": "high",
+          "potential_impact": "Possible increase in performance with Alpines' resources"
+        }
+      ]
+    },
+    "metadata": {
+      "agent_name": "News & Context Agent",
+      "timestamp": "2023-10-07T12:00:00Z",
+      "sources_checked": 5
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-02-06T07:32:25.308041",
+  "test_message_used": "Hello, provide a sample response",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "news_insights": [
+        {
+          "driver_name": "Lando Norris",
+          "headline": "Norris signs new contract with McLaren through 2026",
+          "impact": "positive",
+          "confidence": 85,
+          "source": "Motorsport.com",
+          "date": "2023-10-07"
+        },
+        {
+          "driver_name": "Charles Leclerc",
+          "headline": "Leclerc linked with potential move to Mercedes",
+          "impact": "neutral",
+          "confidence": 70,
+          "source": "Sky Sports",
+          "date": "2023-10-06"
+        }
+      ],
+      "sentiment_analysis": [
+        {
+          "driver_name": "Max Verstappen",
+          "sentiment_score": 90,
+          "trend": "rising",
+          "key_factors": [
+            "Consistent race wins",
+            "Strong team performance"
+          ]
+        },
+        {
+          "driver_name": "Lewis Hamilton",
+          "sentiment_score": 60,
+          "trend": "falling",
+          "key_factors": [
+            "Mixed results",
+            "Rumors of retirement"
+          ]
+        }
+      ],
+      "emerging_opportunities": [
+        {
+          "driver_name": "Theo Pourchaire",
+          "opportunity_type": "rookie",
+          "reason": "Strong performance in F2 and set to debut in 2026",
+          "confidence": 80
+        },
+        {
+          "driver_name": "Jack Doohan",
+          "opportunity_type": "rookie",
+          "reason": "Solid F2 results, potential 2026 seat opportunity",
+          "confidence": 75
+        }
+      ],
+      "contract_rumors": [
+        {
+          "driver_name": "Carlos Sainz",
+          "rumor_details": "Sainz could be leaving Ferrari for a role at Aston Martin",
+          "reliability": "medium",
+          "potential_impact": "Could alter team dynamics at Ferrari"
+        },
+        {
+          "driver_name": "Yuki Tsunoda",
+          "rumor_details": "Tsunoda rumored to be on the move from AlphaTauri to Alpine",
+          "reliability": "high",
+          "potential_impact": "Possible increase in performance with Alpines' resources"
+        }
+      ]
+    },
+    "metadata": {
+      "agent_name": "News & Context Agent",
+      "timestamp": "2023-10-07T12:00:00Z",
+      "sources_checked": 5
+    }
+  },
+  "test_passed": true
+}

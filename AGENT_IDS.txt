@@ -1,0 +1,73 @@
+F1 FANTASY TEAM ANALYZER PRO - AGENT IDs
+==========================================
+
+MANAGER AGENT:
+--------------
+Fantasy Orchestrator
+Agent ID: 6985975907ec48e3dc90a264
+Type: Manager
+Manages: 3 sub-agents
+Provider: OpenAI
+Model: gpt-4.1
+
+SUB-AGENTS (Managed by Fantasy Orchestrator):
+----------------------------------------------
+1. Stats Analysis Agent
+   Agent ID: 698596c476d4fd436bf4b710
+   Type: Sub-Agent
+   Provider: OpenAI
+   Model: gpt-4.1
+   Purpose: Historical performance analysis
+
+2. Prediction Engine Agent
+   Agent ID: 698596e3ab4bf65a66ad08b1
+   Type: Sub-Agent
+   Provider: OpenAI
+   Model: gpt-4.1
+   Purpose: Performance predictions and value forecasts
+
+3. News & Context Agent
+   Agent ID: 6985970ce5d25ce3f598cbc9
+   Type: Sub-Agent
+   Provider: Perplexity
+   Model: sonar-pro
+   Purpose: News monitoring and sentiment analysis
+   Tools: composio_search (web search)
+
+INDEPENDENT AGENT:
+------------------
+Data Sync Agent
+Agent ID: 6985972ea791e6e318b8df89
+Type: Independent
+Provider: Perplexity
+Model: sonar-pro
+Purpose: Roster updates and data synchronization
+Trigger: Scheduled (daily) + Manual
+
+WORKFLOW STRUCTURE:
+-------------------
+Input → Fantasy Orchestrator → [Stats, Predictions, News] → Output
+Input → Data Sync Agent (separate/scheduled)
+
+FILES CREATED:
+--------------
+✓ /app/nextjs-project/workflow.json
+✓ /app/nextjs-project/workflow_state.json
+✓ /app/nextjs-project/response_schemas/fantasy_orchestrator_response.json
+✓ /app/nextjs-project/response_schemas/stats_analysis_agent_response.json
+✓ /app/nextjs-project/response_schemas/prediction_engine_agent_response.json
+✓ /app/nextjs-project/response_schemas/news_context_agent_response.json
+✓ /app/nextjs-project/response_schemas/data_sync_agent_response.json
+
+TOTAL AGENTS: 5
+- Manager Agents: 1
+- Sub-Agents: 3
+- Independent Agents: 1
+
+ALL AGENT IDS (for UI generator):
+----------------------------------
+6985975907ec48e3dc90a264  (Fantasy Orchestrator - Manager)
+698596c476d4fd436bf4b710  (Stats Analysis Agent - Sub)
+698596e3ab4bf65a66ad08b1  (Prediction Engine Agent - Sub)
+6985970ce5d25ce3f598cbc9  (News & Context Agent - Sub)
+6985972ea791e6e318b8df89  (Data Sync Agent - Independent)

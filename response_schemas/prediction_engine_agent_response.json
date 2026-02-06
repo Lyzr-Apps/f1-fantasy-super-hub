@@ -1,0 +1,498 @@
+{
+  "agent_name": "Prediction Engine Agent",
+  "agent_id": "698596e3ab4bf65a66ad08b1",
+  "agent_purpose": "Generate predictions for driver and constructor performance using multi-factor analysis including form, track history, weather, and team trends",
+  "description": "F1 performance predictions and fantasy value forecasts",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "driver_predictions": [
+        {
+          "driver_name": "string",
+          "constructor": "string",
+          "predicted_position": "number",
+          "confidence_level": "number",
+          "fantasy_value": "number",
+          "value_change_prediction": "string",
+          "factors": {
+            "form_score": "number",
+            "track_affinity": "number",
+            "weather_impact": "string",
+            "team_momentum": "string"
+          },
+          "risk_assessment": "string",
+          "recommended_action": "string"
+        }
+      ],
+      "constructor_predictions": [
+        {
+          "constructor_name": "string",
+          "predicted_avg_position": "number",
+          "fantasy_value": "number",
+          "upgrade_potential": "string",
+          "reliability_forecast": "string"
+        }
+      ],
+      "upcoming_race": {
+        "track_name": "string",
+        "weather_forecast": "string",
+        "key_factors": [
+          "string"
+        ]
+      }
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string",
+      "prediction_horizon": "string"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "driver_predictions": [
+        {
+          "driver_name": "Max Verstappen",
+          "constructor": "Red Bull Racing",
+          "predicted_position": 1,
+          "confidence_level": 92,
+          "fantasy_value": 30.0,
+          "value_change_prediction": "Slight increase",
+          "factors": {
+            "form_score": 95,
+            "track_affinity": 92,
+            "weather_impact": "Minimal; high adaptability in mixed conditions",
+            "team_momentum": "Stable, top-tier development"
+          },
+          "risk_assessment": "Low; small risk from qualifying mistakes in Monaco context",
+          "recommended_action": "Lock in as captain if budget allows"
+        },
+        {
+          "driver_name": "Charles Leclerc",
+          "constructor": "Ferrari",
+          "predicted_position": 2,
+          "confidence_level": 85,
+          "fantasy_value": 26.5,
+          "value_change_prediction": "Slight increase",
+          "factors": {
+            "form_score": 88,
+            "track_affinity": 93,
+            "weather_impact": "Favorable; strong wet pace",
+            "team_momentum": "Ferrari trending up, strong on high-downforce circuits"
+          },
+          "risk_assessment": "Medium; history of Monaco misfortune plausible",
+          "recommended_action": "Strong pick, especially for differential captaincy"
+        },
+        {
+          "driver_name": "Sergio Perez",
+          "constructor": "Red Bull Racing",
+          "predicted_position": 3,
+          "confidence_level": 78,
+          "fantasy_value": 23.0,
+          "value_change_prediction": "Stable",
+          "factors": {
+            "form_score": 76,
+            "track_affinity": 90,
+            "weather_impact": "Good in variable conditions",
+            "team_momentum": "Solid but slightly trailing Verstappen"
+          },
+          "risk_assessment": "Low to medium; track suits his style, but form inconsistency noted",
+          "recommended_action": "Safe add, especially if budget constraints"
+        },
+        {
+          "driver_name": "Carlos Sainz",
+          "constructor": "Ferrari",
+          "predicted_position": 4,
+          "confidence_level": 76,
+          "fantasy_value": 21.0,
+          "value_change_prediction": "Stable",
+          "factors": {
+            "form_score": 79,
+            "track_affinity": 87,
+            "weather_impact": "Slightly negative in unpredictable weather",
+            "team_momentum": "Ferrari high",
+            "risk_assessment": "Medium; occasional Monaco errors historically",
+            "recommended_action": "Solid differential, good value"
+          },
+          "risk_assessment": "Medium; occasional Monaco errors historically",
+          "recommended_action": "Solid differential, good value"
+        },
+        {
+          "driver_name": "Lewis Hamilton",
+          "constructor": "Mercedes",
+          "predicted_position": 5,
+          "confidence_level": 71,
+          "fantasy_value": 18.5,
+          "value_change_prediction": "Stable",
+          "factors": {
+            "form_score": 73,
+            "track_affinity": 89,
+            "weather_impact": "Positive (strong wet racer)",
+            "team_momentum": "Mercedes modest improvement, but slower than top two"
+          },
+          "risk_assessment": "Medium; car performance key constraint, track experience high",
+          "recommended_action": "Conservative pick for points stability"
+        },
+        {
+          "driver_name": "Lando Norris",
+          "constructor": "McLaren",
+          "predicted_position": 6,
+          "confidence_level": 69,
+          "fantasy_value": 16.0,
+          "value_change_prediction": "Increase",
+          "factors": {
+            "form_score": 82,
+            "track_affinity": 83,
+            "weather_impact": "Neutral to positive",
+            "team_momentum": "McLaren upgrade effect high"
+          },
+          "risk_assessment": "Low; strong recent run, consistent finisher",
+          "recommended_action": "Good mid-budget value, consider as differential"
+        },
+        {
+          "driver_name": "George Russell",
+          "constructor": "Mercedes",
+          "predicted_position": 7,
+          "confidence_level": 67,
+          "fantasy_value": 15.5,
+          "value_change_prediction": "Stable",
+          "factors": {
+            "form_score": 77,
+            "track_affinity": 75,
+            "weather_impact": "Slight boost in rain",
+            "team_momentum": "Mild upward trend"
+          },
+          "risk_assessment": "Medium; qualifying sensitivity risk",
+          "recommended_action": "Budget play, stable"
+        },
+        {
+          "driver_name": "Oscar Piastri",
+          "constructor": "McLaren",
+          "predicted_position": 8,
+          "confidence_level": 62,
+          "fantasy_value": 13.5,
+          "value_change_prediction": "Increase",
+          "factors": {
+            "form_score": 71,
+            "track_affinity": 75,
+            "weather_impact": "Unknown at Monaco, slight negative for inexperience",
+            "team_momentum": "Strong with Norris"
+          },
+          "risk_assessment": "Medium-high; Monaco rookie effect",
+          "recommended_action": "High-upside punt for aggressive fantasy managers"
+        },
+        {
+          "driver_name": "Pierre Gasly",
+          "constructor": "Alpine",
+          "predicted_position": 9,
+          "confidence_level": 55,
+          "fantasy_value": 12.0,
+          "value_change_prediction": "Stable",
+          "factors": {
+            "form_score": 65,
+            "track_affinity": 81,
+            "weather_impact": "Positive\u2014excels in disrupted races",
+            "team_momentum": "Alpine in mild resurgence"
+          },
+          "risk_assessment": "Medium; Alpine reliability",
+          "recommended_action": "Differential play if chasing points"
+        },
+        {
+          "driver_name": "Esteban Ocon",
+          "constructor": "Alpine",
+          "predicted_position": 10,
+          "confidence_level": 54,
+          "fantasy_value": 11.0,
+          "value_change_prediction": "Stable",
+          "factors": {
+            "form_score": 64,
+            "track_affinity": 80,
+            "weather_impact": "Neutral to positive",
+            "team_momentum": "Slightly improving"
+          },
+          "risk_assessment": "Medium; qualifying precision crucial",
+          "recommended_action": "Low-cost option for fill-in"
+        }
+      ],
+      "constructor_predictions": [
+        {
+          "constructor_name": "Red Bull Racing",
+          "predicted_avg_position": 2.0,
+          "fantasy_value": 47,
+          "upgrade_potential": "Top end, slight marginal gains",
+          "reliability_forecast": "Very high"
+        },
+        {
+          "constructor_name": "Ferrari",
+          "predicted_avg_position": 3.0,
+          "fantasy_value": 42,
+          "upgrade_potential": "Medium, strong chassis for Monaco",
+          "reliability_forecast": "High"
+        },
+        {
+          "constructor_name": "Mercedes",
+          "predicted_avg_position": 6.0,
+          "fantasy_value": 33,
+          "upgrade_potential": "Medium-low, incremental",
+          "reliability_forecast": "Very high"
+        },
+        {
+          "constructor_name": "McLaren",
+          "predicted_avg_position": 7.0,
+          "fantasy_value": 28,
+          "upgrade_potential": "Emerging, strong Monaco prospects",
+          "reliability_forecast": "High"
+        },
+        {
+          "constructor_name": "Alpine",
+          "predicted_avg_position": 9.5,
+          "fantasy_value": 19,
+          "upgrade_potential": "Low-modest",
+          "reliability_forecast": "Above average"
+        }
+      ],
+      "upcoming_race": {
+        "track_name": "Monaco Grand Prix",
+        "weather_forecast": "Cloudy, 40% chance of rain during race window, mild temperatures",
+        "key_factors": [
+          "Qualifying importance amplified at Monaco",
+          "Potential wet conditions favor adaptable drivers",
+          "High downforce setup emphasis",
+          "Track position and tire management paramount",
+          "Risk of SC/VSC unpredictable, influencing strategy"
+        ]
+      }
+    },
+    "metadata": {
+      "agent_name": "Prediction Engine Agent",
+      "timestamp": "2024-05-01T12:30:00Z",
+      "prediction_horizon": "2024 Monaco Grand Prix race weekend"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-02-06T07:27:45.076304",
+  "test_message_used": "Hello, provide a sample response",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "driver_predictions": [
+        {
+          "driver_name": "Max Verstappen",
+          "constructor": "Red Bull Racing",
+          "predicted_position": 1,
+          "confidence_level": 92,
+          "fantasy_value": 30.0,
+          "value_change_prediction": "Slight increase",
+          "factors": {
+            "form_score": 95,
+            "track_affinity": 92,
+            "weather_impact": "Minimal; high adaptability in mixed conditions",
+            "team_momentum": "Stable, top-tier development"
+          },
+          "risk_assessment": "Low; small risk from qualifying mistakes in Monaco context",
+          "recommended_action": "Lock in as captain if budget allows"
+        },
+        {
+          "driver_name": "Charles Leclerc",
+          "constructor": "Ferrari",
+          "predicted_position": 2,
+          "confidence_level": 85,
+          "fantasy_value": 26.5,
+          "value_change_prediction": "Slight increase",
+          "factors": {
+            "form_score": 88,
+            "track_affinity": 93,
+            "weather_impact": "Favorable; strong wet pace",
+            "team_momentum": "Ferrari trending up, strong on high-downforce circuits"
+          },
+          "risk_assessment": "Medium; history of Monaco misfortune plausible",
+          "recommended_action": "Strong pick, especially for differential captaincy"
+        },
+        {
+          "driver_name": "Sergio Perez",
+          "constructor": "Red Bull Racing",
+          "predicted_position": 3,
+          "confidence_level": 78,
+          "fantasy_value": 23.0,
+          "value_change_prediction": "Stable",
+          "factors": {
+            "form_score": 76,
+            "track_affinity": 90,
+            "weather_impact": "Good in variable conditions",
+            "team_momentum": "Solid but slightly trailing Verstappen"
+          },
+          "risk_assessment": "Low to medium; track suits his style, but form inconsistency noted",
+          "recommended_action": "Safe add, especially if budget constraints"
+        },
+        {
+          "driver_name": "Carlos Sainz",
+          "constructor": "Ferrari",
+          "predicted_position": 4,
+          "confidence_level": 76,
+          "fantasy_value": 21.0,
+          "value_change_prediction": "Stable",
+          "factors": {
+            "form_score": 79,
+            "track_affinity": 87,
+            "weather_impact": "Slightly negative in unpredictable weather",
+            "team_momentum": "Ferrari high",
+            "risk_assessment": "Medium; occasional Monaco errors historically",
+            "recommended_action": "Solid differential, good value"
+          },
+          "risk_assessment": "Medium; occasional Monaco errors historically",
+          "recommended_action": "Solid differential, good value"
+        },
+        {
+          "driver_name": "Lewis Hamilton",
+          "constructor": "Mercedes",
+          "predicted_position": 5,
+          "confidence_level": 71,
+          "fantasy_value": 18.5,
+          "value_change_prediction": "Stable",
+          "factors": {
+            "form_score": 73,
+            "track_affinity": 89,
+            "weather_impact": "Positive (strong wet racer)",
+            "team_momentum": "Mercedes modest improvement, but slower than top two"
+          },
+          "risk_assessment": "Medium; car performance key constraint, track experience high",
+          "recommended_action": "Conservative pick for points stability"
+        },
+        {
+          "driver_name": "Lando Norris",
+          "constructor": "McLaren",
+          "predicted_position": 6,
+          "confidence_level": 69,
+          "fantasy_value": 16.0,
+          "value_change_prediction": "Increase",
+          "factors": {
+            "form_score": 82,
+            "track_affinity": 83,
+            "weather_impact": "Neutral to positive",
+            "team_momentum": "McLaren upgrade effect high"
+          },
+          "risk_assessment": "Low; strong recent run, consistent finisher",
+          "recommended_action": "Good mid-budget value, consider as differential"
+        },
+        {
+          "driver_name": "George Russell",
+          "constructor": "Mercedes",
+          "predicted_position": 7,
+          "confidence_level": 67,
+          "fantasy_value": 15.5,
+          "value_change_prediction": "Stable",
+          "factors": {
+            "form_score": 77,
+            "track_affinity": 75,
+            "weather_impact": "Slight boost in rain",
+            "team_momentum": "Mild upward trend"
+          },
+          "risk_assessment": "Medium; qualifying sensitivity risk",
+          "recommended_action": "Budget play, stable"
+        },
+        {
+          "driver_name": "Oscar Piastri",
+          "constructor": "McLaren",
+          "predicted_position": 8,
+          "confidence_level": 62,
+          "fantasy_value": 13.5,
+          "value_change_prediction": "Increase",
+          "factors": {
+            "form_score": 71,
+            "track_affinity": 75,
+            "weather_impact": "Unknown at Monaco, slight negative for inexperience",
+            "team_momentum": "Strong with Norris"
+          },
+          "risk_assessment": "Medium-high; Monaco rookie effect",
+          "recommended_action": "High-upside punt for aggressive fantasy managers"
+        },
+        {
+          "driver_name": "Pierre Gasly",
+          "constructor": "Alpine",
+          "predicted_position": 9,
+          "confidence_level": 55,
+          "fantasy_value": 12.0,
+          "value_change_prediction": "Stable",
+          "factors": {
+            "form_score": 65,
+            "track_affinity": 81,
+            "weather_impact": "Positive\u2014excels in disrupted races",
+            "team_momentum": "Alpine in mild resurgence"
+          },
+          "risk_assessment": "Medium; Alpine reliability",
+          "recommended_action": "Differential play if chasing points"
+        },
+        {
+          "driver_name": "Esteban Ocon",
+          "constructor": "Alpine",
+          "predicted_position": 10,
+          "confidence_level": 54,
+          "fantasy_value": 11.0,
+          "value_change_prediction": "Stable",
+          "factors": {
+            "form_score": 64,
+            "track_affinity": 80,
+            "weather_impact": "Neutral to positive",
+            "team_momentum": "Slightly improving"
+          },
+          "risk_assessment": "Medium; qualifying precision crucial",
+          "recommended_action": "Low-cost option for fill-in"
+        }
+      ],
+      "constructor_predictions": [
+        {
+          "constructor_name": "Red Bull Racing",
+          "predicted_avg_position": 2.0,
+          "fantasy_value": 47,
+          "upgrade_potential": "Top end, slight marginal gains",
+          "reliability_forecast": "Very high"
+        },
+        {
+          "constructor_name": "Ferrari",
+          "predicted_avg_position": 3.0,
+          "fantasy_value": 42,
+          "upgrade_potential": "Medium, strong chassis for Monaco",
+          "reliability_forecast": "High"
+        },
+        {
+          "constructor_name": "Mercedes",
+          "predicted_avg_position": 6.0,
+          "fantasy_value": 33,
+          "upgrade_potential": "Medium-low, incremental",
+          "reliability_forecast": "Very high"
+        },
+        {
+          "constructor_name": "McLaren",
+          "predicted_avg_position": 7.0,
+          "fantasy_value": 28,
+          "upgrade_potential": "Emerging, strong Monaco prospects",
+          "reliability_forecast": "High"
+        },
+        {
+          "constructor_name": "Alpine",
+          "predicted_avg_position": 9.5,
+          "fantasy_value": 19,
+          "upgrade_potential": "Low-modest",
+          "reliability_forecast": "Above average"
+        }
+      ],
+      "upcoming_race": {
+        "track_name": "Monaco Grand Prix",
+        "weather_forecast": "Cloudy, 40% chance of rain during race window, mild temperatures",
+        "key_factors": [
+          "Qualifying importance amplified at Monaco",
+          "Potential wet conditions favor adaptable drivers",
+          "High downforce setup emphasis",
+          "Track position and tire management paramount",
+          "Risk of SC/VSC unpredictable, influencing strategy"
+        ]
+      }
+    },
+    "metadata": {
+      "agent_name": "Prediction Engine Agent",
+      "timestamp": "2024-05-01T12:30:00Z",
+      "prediction_horizon": "2024 Monaco Grand Prix race weekend"
+    }
+  },
+  "test_passed": true
+}

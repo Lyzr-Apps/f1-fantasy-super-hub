@@ -1,0 +1,172 @@
+{
+  "agent_name": "Stats Analysis Agent",
+  "agent_id": "698596c476d4fd436bf4b710",
+  "agent_purpose": "Analyze historical F1 performance data including qualifying results, race positions, points, and track-specific trends",
+  "description": "Historical F1 performance statistics and trends analysis",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "driver_stats": [
+        {
+          "driver_name": "string",
+          "driver_number": "number",
+          "constructor": "string",
+          "avg_qualifying_position": "number",
+          "avg_race_position": "number",
+          "total_points": "number",
+          "podium_finishes": "number",
+          "dnf_rate": "number",
+          "track_performance": {
+            "track_name": "string",
+            "avg_position": "number",
+            "best_result": "number"
+          },
+          "recent_form": "string",
+          "consistency_score": "number"
+        }
+      ],
+      "constructor_stats": [
+        {
+          "constructor_name": "string",
+          "total_points": "number",
+          "avg_position": "number",
+          "reliability_score": "number",
+          "development_trend": "string"
+        }
+      ]
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string",
+      "data_period": "string"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "driver_stats": [
+        {
+          "driver_name": "Max Verstappen",
+          "driver_number": 1,
+          "constructor": "Red Bull Racing",
+          "avg_qualifying_position": 2.2,
+          "avg_race_position": 1.6,
+          "total_points": 110,
+          "podium_finishes": 5,
+          "dnf_rate": 0.0,
+          "track_performance": {
+            "track_name": "Various (last 5 races: Jeddah, Melbourne, Shanghai, Miami, Imola)",
+            "avg_position": 1.6,
+            "best_result": 1
+          },
+          "recent_form": "Consistently at the front, winning 3 out of the last 5 races, 2 second-place finishes. Flawless reliability and strong conversion from qualifying to race results.",
+          "consistency_score": 9.5
+        },
+        {
+          "driver_name": "Charles Leclerc",
+          "driver_number": 16,
+          "constructor": "Ferrari",
+          "avg_qualifying_position": 2.8,
+          "avg_race_position": 2.4,
+          "total_points": 78,
+          "podium_finishes": 4,
+          "dnf_rate": 0.0,
+          "track_performance": {
+            "track_name": "Various (last 5 races: Jeddah, Melbourne, Shanghai, Miami, Imola)",
+            "avg_position": 2.4,
+            "best_result": 2
+          },
+          "recent_form": "Strong qualifying and race pace, 4 podiums in last 5 races, always finishing within top 4. Reliability much improved over prior seasons.",
+          "consistency_score": 8.7
+        }
+      ],
+      "constructor_stats": [
+        {
+          "constructor_name": "Red Bull Racing",
+          "total_points": 130,
+          "avg_position": 1.8,
+          "reliability_score": 9.7,
+          "development_trend": "Maintained high performance; slightly closing gap to Ferrari in qualifying but continued race pace superiority and unmatched reliability."
+        },
+        {
+          "constructor_name": "Ferrari",
+          "total_points": 102,
+          "avg_position": 2.7,
+          "reliability_score": 9.2,
+          "development_trend": "Significantly improved year-over-year, especially in race execution, but still trailing Red Bull marginally in outright pace and tire management."
+        }
+      ]
+    },
+    "metadata": {
+      "agent_name": "Stats Analysis Agent",
+      "timestamp": "2024-06-09T13:40:00Z",
+      "data_period": "2026, last 5 races"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-02-06T07:27:24.799162",
+  "test_message_used": "Hello, provide a sample response",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "driver_stats": [
+        {
+          "driver_name": "Max Verstappen",
+          "driver_number": 1,
+          "constructor": "Red Bull Racing",
+          "avg_qualifying_position": 2.2,
+          "avg_race_position": 1.6,
+          "total_points": 110,
+          "podium_finishes": 5,
+          "dnf_rate": 0.0,
+          "track_performance": {
+            "track_name": "Various (last 5 races: Jeddah, Melbourne, Shanghai, Miami, Imola)",
+            "avg_position": 1.6,
+            "best_result": 1
+          },
+          "recent_form": "Consistently at the front, winning 3 out of the last 5 races, 2 second-place finishes. Flawless reliability and strong conversion from qualifying to race results.",
+          "consistency_score": 9.5
+        },
+        {
+          "driver_name": "Charles Leclerc",
+          "driver_number": 16,
+          "constructor": "Ferrari",
+          "avg_qualifying_position": 2.8,
+          "avg_race_position": 2.4,
+          "total_points": 78,
+          "podium_finishes": 4,
+          "dnf_rate": 0.0,
+          "track_performance": {
+            "track_name": "Various (last 5 races: Jeddah, Melbourne, Shanghai, Miami, Imola)",
+            "avg_position": 2.4,
+            "best_result": 2
+          },
+          "recent_form": "Strong qualifying and race pace, 4 podiums in last 5 races, always finishing within top 4. Reliability much improved over prior seasons.",
+          "consistency_score": 8.7
+        }
+      ],
+      "constructor_stats": [
+        {
+          "constructor_name": "Red Bull Racing",
+          "total_points": 130,
+          "avg_position": 1.8,
+          "reliability_score": 9.7,
+          "development_trend": "Maintained high performance; slightly closing gap to Ferrari in qualifying but continued race pace superiority and unmatched reliability."
+        },
+        {
+          "constructor_name": "Ferrari",
+          "total_points": 102,
+          "avg_position": 2.7,
+          "reliability_score": 9.2,
+          "development_trend": "Significantly improved year-over-year, especially in race execution, but still trailing Red Bull marginally in outright pace and tire management."
+        }
+      ]
+    },
+    "metadata": {
+      "agent_name": "Stats Analysis Agent",
+      "timestamp": "2024-06-09T13:40:00Z",
+      "data_period": "2026, last 5 races"
+    }
+  },
+  "test_passed": true
+}

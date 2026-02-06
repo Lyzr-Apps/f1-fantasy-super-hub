@@ -1,0 +1,86 @@
+{
+  "agent_name": "News & Context Agent",
+  "agent_id": "6985970ce5d25ce3f598cbc9",
+  "test_message": "Analyze recent F1 news, contract rumors, and social media sentiment. Include F2 performance analysis for any rookie drivers joining in 2026.",
+  "expected_purpose": "Analyze F1 news and rookie potential",
+  "timestamp": "2026-02-06T07:32:25.307405",
+  "is_valid_json": true,
+  "validation_errors": [],
+  "actual_response": {
+    "status": "success",
+    "result": {
+      "news_insights": [
+        {
+          "driver_name": "Lando Norris",
+          "headline": "Norris signs new contract with McLaren through 2026",
+          "impact": "positive",
+          "confidence": 85,
+          "source": "Motorsport.com",
+          "date": "2023-10-07"
+        },
+        {
+          "driver_name": "Charles Leclerc",
+          "headline": "Leclerc linked with potential move to Mercedes",
+          "impact": "neutral",
+          "confidence": 70,
+          "source": "Sky Sports",
+          "date": "2023-10-06"
+        }
+      ],
+      "sentiment_analysis": [
+        {
+          "driver_name": "Max Verstappen",
+          "sentiment_score": 90,
+          "trend": "rising",
+          "key_factors": [
+            "Consistent race wins",
+            "Strong team performance"
+          ]
+        },
+        {
+          "driver_name": "Lewis Hamilton",
+          "sentiment_score": 60,
+          "trend": "falling",
+          "key_factors": [
+            "Mixed results",
+            "Rumors of retirement"
+          ]
+        }
+      ],
+      "emerging_opportunities": [
+        {
+          "driver_name": "Theo Pourchaire",
+          "opportunity_type": "rookie",
+          "reason": "Strong performance in F2 and set to debut in 2026",
+          "confidence": 80
+        },
+        {
+          "driver_name": "Jack Doohan",
+          "opportunity_type": "rookie",
+          "reason": "Solid F2 results, potential 2026 seat opportunity",
+          "confidence": 75
+        }
+      ],
+      "contract_rumors": [
+        {
+          "driver_name": "Carlos Sainz",
+          "rumor_details": "Sainz could be leaving Ferrari for a role at Aston Martin",
+          "reliability": "medium",
+          "potential_impact": "Could alter team dynamics at Ferrari"
+        },
+        {
+          "driver_name": "Yuki Tsunoda",
+          "rumor_details": "Tsunoda rumored to be on the move from AlphaTauri to Alpine",
+          "reliability": "high",
+          "potential_impact": "Possible increase in performance with Alpines' resources"
+        }
+      ]
+    },
+    "metadata": {
+      "agent_name": "News & Context Agent",
+      "timestamp": "2023-10-07T12:00:00Z",
+      "sources_checked": 5
+    }
+  },
+  "raw_response": "{\n  \"status\": \"success\",\n  \"result\": {\n    \"news_insights\": [\n      {\n        \"driver_name\": \"Lando Norris\",\n        \"headline\": \"Norris signs new contract with McLaren through 2026\",\n        \"impact\": \"positive\",\n        \"confidence\": 85,\n        \"source\": \"Motorsport.com\",\n        \"date\": \"2023-10-07\"\n      },\n      {\n        \"driver_name\": \"Charles Leclerc\",\n        \"headline\": \"Leclerc linked with potential move to Mercedes\",\n        \"impact\": \"neutral\",\n        \"confidence\": 70,\n        \"source\": \"Sky Sports\",\n        \"date\": \"2023-10-06\"\n      }\n    ],\n    \"sentiment_analysis\": [\n      {\n        \"driver_name\": \"Max Verstappen\",\n        \"sentiment_score\": 90,\n        \"trend\": \"rising\",\n        \"key_factors\": [\"Consistent race wins\", \"Strong team performance\"]\n      },\n      {\n        \"driver_name\": \"Lewis Hamilton\",\n        \"sentiment_score\": 60,\n        \"trend\": \"falling\",\n        \"key_factors\": [\"Mixed results\", \"Rumors of retirement\"]\n      }\n    ],\n    \"emerging_opportunities\": [\n      {\n        \"driver_name\": \"Theo Pourchaire\",\n        \"opportunity_type\": \"rookie\",\n        \"reason\": \"Strong performance in F2 and set to debut in 2026\",\n        \"confidence\": 80\n      },\n      {\n        \"driver_name\": \"Jack Doohan\",\n        \"opportunity_type\": \"rookie\",\n        \"reason\": \"Solid F2 results, potential 2026 seat opportunity\",\n        \"confidence\": 75\n      }\n    ],\n    \"contract_rumors\": [\n      {\n        \"driver_name\": \"Carlos Sainz\",\n        \"rumor_details\": \"Sainz could be leaving Ferrari for a role at Aston Martin\",\n        \"reliability\": \"medium\",\n        \"potential_impact\": \"Could alter team dynamics at Ferrari\"\n      },\n      {\n        \"driver_name\": \"Yuki Tsunoda\",\n        \"rumor_details\": \"Tsunoda rumored to be on the move from AlphaTauri to Alpine\",\n        \"reliability\": \"high\",\n        \"potential_impact\": \"Possible increase in performance with Alpines' resources\"\n      }\n    ]\n  },\n  \"metadata\": {\n    \"agent_name\": \"News & Context Agent\",\n    \"timestamp\": \"2023-10-07T12:00:00Z\",\n    \"sources_checked\": 5\n  }\n}"
+}

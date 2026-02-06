@@ -1,0 +1,107 @@
+{
+  "workflow_name": "F1 Fantasy Team Analyzer Pro",
+  "description": "Multi-agent system for F1 fantasy team optimization with stats analysis, predictions, news monitoring, and data synchronization",
+  "nodes": [
+    {
+      "id": "input_node",
+      "type": "Input",
+      "label": "User Input",
+      "nodeCategory": "input"
+    },
+    {
+      "id": "fantasy_orchestrator",
+      "type": "Agent",
+      "label": "Fantasy Orchestrator",
+      "nodeCategory": "agent",
+      "agent_id": "6985975907ec48e3dc90a264",
+      "agent_type": "manager"
+    },
+    {
+      "id": "stats_analysis_agent",
+      "type": "Agent",
+      "label": "Stats Analysis Agent",
+      "nodeCategory": "agent",
+      "agent_id": "698596c476d4fd436bf4b710",
+      "agent_type": "sub_agent"
+    },
+    {
+      "id": "prediction_engine_agent",
+      "type": "Agent",
+      "label": "Prediction Engine Agent",
+      "nodeCategory": "agent",
+      "agent_id": "698596e3ab4bf65a66ad08b1",
+      "agent_type": "sub_agent"
+    },
+    {
+      "id": "news_context_agent",
+      "type": "Agent",
+      "label": "News & Context Agent",
+      "nodeCategory": "agent",
+      "agent_id": "6985970ce5d25ce3f598cbc9",
+      "agent_type": "sub_agent"
+    },
+    {
+      "id": "data_sync_agent",
+      "type": "Agent",
+      "label": "Data Sync Agent",
+      "nodeCategory": "agent",
+      "agent_id": "6985972ea791e6e318b8df89",
+      "agent_type": "independent"
+    },
+    {
+      "id": "output_node",
+      "type": "Output",
+      "label": "Recommendations Output",
+      "nodeCategory": "end"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input_node",
+      "target": "fantasy_orchestrator",
+      "label": "User Request"
+    },
+    {
+      "source": "fantasy_orchestrator",
+      "target": "stats_analysis_agent",
+      "label": "Request Stats"
+    },
+    {
+      "source": "fantasy_orchestrator",
+      "target": "prediction_engine_agent",
+      "label": "Request Predictions"
+    },
+    {
+      "source": "fantasy_orchestrator",
+      "target": "news_context_agent",
+      "label": "Request News"
+    },
+    {
+      "source": "input_node",
+      "target": "data_sync_agent",
+      "label": "Sync Trigger"
+    },
+    {
+      "source": "stats_analysis_agent",
+      "target": "output_node",
+      "label": "Stats Data"
+    },
+    {
+      "source": "prediction_engine_agent",
+      "target": "output_node",
+      "label": "Predictions"
+    },
+    {
+      "source": "news_context_agent",
+      "target": "output_node",
+      "label": "News Context"
+    }
+  ],
+  "metadata": {
+    "created_at": "2026-02-06T00:00:00Z",
+    "total_agents": 5,
+    "manager_agents": 1,
+    "sub_agents": 3,
+    "independent_agents": 1
+  }
+}

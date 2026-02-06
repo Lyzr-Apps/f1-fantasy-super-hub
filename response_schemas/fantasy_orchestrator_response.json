@@ -1,0 +1,301 @@
+{
+  "agent_name": "Fantasy Orchestrator",
+  "agent_id": "6985975907ec48e3dc90a264",
+  "agent_purpose": "fantasy_team_recommendations",
+  "description": "Coordinates sub-agents to provide comprehensive F1 fantasy team recommendations with calculated numeric values",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "recommended_team": {
+        "drivers": [
+          {
+            "name": "string",
+            "team": "string",
+            "current_price": "number",
+            "predicted_points": "number",
+            "value_score": "number",
+            "reason": "string",
+            "confidence": "number"
+          }
+        ],
+        "total_cost": "number",
+        "total_predicted_points": "number",
+        "budget_remaining": "number"
+      },
+      "locked_drivers_included": [
+        "string"
+      ],
+      "alternative_picks": [
+        {
+          "name": "string",
+          "team": "string",
+          "current_price": "number",
+          "predicted_points": "number",
+          "reason": "string"
+        }
+      ],
+      "insights": {
+        "stats_summary": "string",
+        "prediction_highlights": "string",
+        "news_context": "string"
+      },
+      "excluded_drivers": [
+        {
+          "name": "string",
+          "reason": "string"
+        }
+      ]
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string",
+      "sub_agents_consulted": [
+        "string"
+      ]
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "recommended_team": {
+        "drivers": [
+          {
+            "name": "Max Verstappen",
+            "team": "Red Bull",
+            "current_price": 28.2,
+            "predicted_points": 48,
+            "value_score": 1.7,
+            "reason": "Locked driver. Top-performer with strong win record, dominant in qualifying and races.",
+            "confidence": 95
+          },
+          {
+            "name": "Lewis Hamilton",
+            "team": "Mercedes",
+            "current_price": 25.6,
+            "predicted_points": 29,
+            "value_score": 1.13,
+            "reason": "Locked driver. Consistent points scorer; Mercedes showing improvements.",
+            "confidence": 85
+          },
+          {
+            "name": "Oscar Piastri",
+            "team": "McLaren",
+            "current_price": 17.9,
+            "predicted_points": 22,
+            "value_score": 1.23,
+            "reason": "Aggressive pick; McLaren's recent upgrades pushing Piastri into podium contention.",
+            "confidence": 80
+          },
+          {
+            "name": "Yuki Tsunoda",
+            "team": "RB",
+            "current_price": 7.8,
+            "predicted_points": 12,
+            "value_score": 1.54,
+            "reason": "High-upside lower-cost pick; excels in chaotic, aggressive race scenarios.",
+            "confidence": 75
+          },
+          {
+            "name": "Nico H\u00fclkenberg",
+            "team": "Haas",
+            "current_price": 6.9,
+            "predicted_points": 10,
+            "value_score": 1.45,
+            "reason": "Calculated risk; qualifies well and has shown point-scoring potential in unpredictable races.",
+            "confidence": 70
+          }
+        ],
+        "total_cost": 86.4,
+        "total_predicted_points": 121,
+        "budget_remaining": 13.6
+      },
+      "locked_drivers_included": [
+        "Max Verstappen",
+        "Lewis Hamilton"
+      ],
+      "alternative_picks": [
+        {
+          "name": "Charles Leclerc",
+          "team": "Ferrari",
+          "current_price": 23.1,
+          "predicted_points": 26,
+          "reason": "Fast in qualifying, capable of podium in tight races."
+        },
+        {
+          "name": "Lando Norris",
+          "team": "McLaren",
+          "current_price": 21.3,
+          "predicted_points": 25,
+          "reason": "Consistent podium threat with excellent late-race pace."
+        },
+        {
+          "name": "Esteban Ocon",
+          "team": "Alpine",
+          "current_price": 7.1,
+          "predicted_points": 9,
+          "reason": "Can capitalize in aggressive strategies and wet/dynamic conditions."
+        }
+      ],
+      "insights": {
+        "stats_summary": "Verstappen has averaged 47.8 points over last 5 races; Hamilton trending upward. Piastri outscored Norris in 2 of last 3 events. Tsunoda strong in top 10 despite car limitations.",
+        "prediction_highlights": "Aggressive risk profile: Piastri and Tsunoda offer biggest high-reward potential based on qualifying and race chaos. H\u00fclkenberg likely to capitalize on unpredictability.",
+        "news_context": "McLaren upgrades have closed pace gap; Mercedes introducing minor improvements for this round. RB team positive about Tsunoda's mindset and recent performance spike."
+      },
+      "excluded_drivers": [
+        {
+          "name": "Daniel Ricciardo",
+          "reason": "retired"
+        },
+        {
+          "name": "Kevin Magnussen",
+          "reason": "retired"
+        },
+        {
+          "name": "Guanyu Zhou",
+          "reason": "retired"
+        },
+        {
+          "name": "Valtteri Bottas",
+          "reason": "retired"
+        },
+        {
+          "name": "Logan Sargeant",
+          "reason": "retired"
+        }
+      ]
+    },
+    "metadata": {
+      "agent_name": "Fantasy Orchestrator",
+      "timestamp": "2024-06-18T20:10:00Z",
+      "sub_agents_consulted": [
+        "Stats Analysis Agent",
+        "Prediction Engine Agent",
+        "News & Context Agent"
+      ]
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-02-06T07:32:45.880750",
+  "test_message_used": "Hello, provide a sample response",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "recommended_team": {
+        "drivers": [
+          {
+            "name": "Max Verstappen",
+            "team": "Red Bull",
+            "current_price": 28.2,
+            "predicted_points": 48,
+            "value_score": 1.7,
+            "reason": "Locked driver. Top-performer with strong win record, dominant in qualifying and races.",
+            "confidence": 95
+          },
+          {
+            "name": "Lewis Hamilton",
+            "team": "Mercedes",
+            "current_price": 25.6,
+            "predicted_points": 29,
+            "value_score": 1.13,
+            "reason": "Locked driver. Consistent points scorer; Mercedes showing improvements.",
+            "confidence": 85
+          },
+          {
+            "name": "Oscar Piastri",
+            "team": "McLaren",
+            "current_price": 17.9,
+            "predicted_points": 22,
+            "value_score": 1.23,
+            "reason": "Aggressive pick; McLaren's recent upgrades pushing Piastri into podium contention.",
+            "confidence": 80
+          },
+          {
+            "name": "Yuki Tsunoda",
+            "team": "RB",
+            "current_price": 7.8,
+            "predicted_points": 12,
+            "value_score": 1.54,
+            "reason": "High-upside lower-cost pick; excels in chaotic, aggressive race scenarios.",
+            "confidence": 75
+          },
+          {
+            "name": "Nico H\u00fclkenberg",
+            "team": "Haas",
+            "current_price": 6.9,
+            "predicted_points": 10,
+            "value_score": 1.45,
+            "reason": "Calculated risk; qualifies well and has shown point-scoring potential in unpredictable races.",
+            "confidence": 70
+          }
+        ],
+        "total_cost": 86.4,
+        "total_predicted_points": 121,
+        "budget_remaining": 13.6
+      },
+      "locked_drivers_included": [
+        "Max Verstappen",
+        "Lewis Hamilton"
+      ],
+      "alternative_picks": [
+        {
+          "name": "Charles Leclerc",
+          "team": "Ferrari",
+          "current_price": 23.1,
+          "predicted_points": 26,
+          "reason": "Fast in qualifying, capable of podium in tight races."
+        },
+        {
+          "name": "Lando Norris",
+          "team": "McLaren",
+          "current_price": 21.3,
+          "predicted_points": 25,
+          "reason": "Consistent podium threat with excellent late-race pace."
+        },
+        {
+          "name": "Esteban Ocon",
+          "team": "Alpine",
+          "current_price": 7.1,
+          "predicted_points": 9,
+          "reason": "Can capitalize in aggressive strategies and wet/dynamic conditions."
+        }
+      ],
+      "insights": {
+        "stats_summary": "Verstappen has averaged 47.8 points over last 5 races; Hamilton trending upward. Piastri outscored Norris in 2 of last 3 events. Tsunoda strong in top 10 despite car limitations.",
+        "prediction_highlights": "Aggressive risk profile: Piastri and Tsunoda offer biggest high-reward potential based on qualifying and race chaos. H\u00fclkenberg likely to capitalize on unpredictability.",
+        "news_context": "McLaren upgrades have closed pace gap; Mercedes introducing minor improvements for this round. RB team positive about Tsunoda's mindset and recent performance spike."
+      },
+      "excluded_drivers": [
+        {
+          "name": "Daniel Ricciardo",
+          "reason": "retired"
+        },
+        {
+          "name": "Kevin Magnussen",
+          "reason": "retired"
+        },
+        {
+          "name": "Guanyu Zhou",
+          "reason": "retired"
+        },
+        {
+          "name": "Valtteri Bottas",
+          "reason": "retired"
+        },
+        {
+          "name": "Logan Sargeant",
+          "reason": "retired"
+        }
+      ]
+    },
+    "metadata": {
+      "agent_name": "Fantasy Orchestrator",
+      "timestamp": "2024-06-18T20:10:00Z",
+      "sub_agents_consulted": [
+        "Stats Analysis Agent",
+        "Prediction Engine Agent",
+        "News & Context Agent"
+      ]
+    }
+  },
+  "test_passed": true
+}
